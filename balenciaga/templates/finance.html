@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylefinance.css">
+    <!--ANIMATE CSS-->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes Financieros</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+
+
+body {
+    font-family: 'Glacial Indifference', sans-serif;
+    background-color: #4e96d0;
+    margin: 0%;
+    overflow-x: hidden !important;
+    height: 100%;
+}
+
+header {
+    background-color: #ffffff;
+}
+
+header img{
+    max-height:100px;
+    display: block;
+}
+
+/* Estilos para el logo */
+.logo {
+    transition: all .1s ease;
+}
+
+.logo img {
+    max-height: 100px;
+    padding: 10px;
+}
+
+/* Estilos de hover para el logo */
+.logo:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el mouse sobre él */
+}
+
+
+.encabezado{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+header nav{
+    display: flex;
+    flex-direction:inherit;
+    text-align:right;
+    padding: 0px 20px;
+}
+
+
+header a{
+    padding: 0px 0px; 
+    text-decoration:none;
+    color: #000000;
+    transition: all .1s ease;
+}
+
+header a:hover{
+    color: #2d69ad;
+    transform: scale(1.1);
+}
+
+.container{
+    width: 100%;
+    max-width: 800px;
+    margin: 130px auto; /* Ajusta este valor según la separación deseada */
+    padding: 20px; /* Puedes aplicar relleno adicional si es necesario */
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    }
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4e96d0;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+table tr:hover {
+    background-color: #dcf6fb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+table {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/images/adminbalen.png' %}" alt="Logo de Mi Página Web">
+                </a>
+            </div>
+            <nav>
+                <a href="{% url 'admin:index' %}">REGRESAR AL ADMINISTRADOR</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1 class="animate__animated animate__slideInDown">INFORME FINANCIERO</h1>
+        <table>
+            <tr>
+                <th>Sueldos Totales de Empleados</th>
+                <td>{{ total_sueldos }}</td>
+            </tr>
+            <tr>
+                <th>Gastos Totales de Administración</th>
+                <td>{{ total_gastos }}</td>
+            </tr>
+            <tr>
+                <th>Pago de Expensas por Departamento</th>
+                <td>{{ gasto_unidad }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
