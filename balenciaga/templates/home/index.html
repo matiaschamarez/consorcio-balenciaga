@@ -1,444 +1,482 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Administraciones Balenciaga</title>
     <script>
         // Verificar si la página se cargó con un anclaje y redirigir al inicio si es así
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
             if (window.location.hash) {
                 window.location.href = window.location.pathname;
             }
         });
-        </script>
+    </script>
     <script src="{% static 'js/script.js' %}"></script>
     <!--DATA-AOS(Link de css cuando se hace scroll y aparecen las imagenes)-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--ANIMATE CSS-->
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!--SWIFFY SLIDER(Links del Carrusel)-->
-    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+        defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+        crossorigin="anonymous">
     <!--SLIDER for Safari (iPhone)-->
-    <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" crossorigin="anonymous"
+        defer></script>
     <!--FONT AWESOME (Link de íconos para footer)-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
-
-
-
-
-*{
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    font-family: 'Glacial Indifference', sans-serif;
-    margin: 0%;
-    overflow-x: hidden !important;
-    height: 100%;
-}
-
-h1{font-size: 55px;}
-h2{font-size: 35px;}
-h3{font-size: 15px;}
-h4{font-size: 35px;}
-p{font-size: 13px}
-
-
-
-button{
-    font-family: 'Glacial Indifference', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-   /* padding: 10px 10px;*/
-    border-radius: 10px;
-    border-color: #000000;
-    color: #fff;
-    background-color: #004473;
-}
-
-button:hover{
-    background-color: #2d69ad;
-}
-
-header{
-    background-color:#ffffff; 
-}
-
-header img{
-    max-height:100px;
-    display: block;
-}
-
-/* Estilos para el logo */
-.logo {
-    display: inline-block;
-    transition: all .1s ease;
-}
-
-.logo img {
-   max-height: 100px;
-   display: block;
-}
-
-/* Estilos de hover para el logo */
-.logo:hover {
-    transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el mouse sobre él */
-}
-
-
-header .container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding: 0px 0px;
-}
-
-header nav{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 0px 100px;
-}
-
-header a{
-    padding: 10px 15px; 
-    text-decoration:none;
-    color: #000000;
-    transition: all .1s ease;
-}
-
-header a:hover{
-    color: #2d69ad;
-    transform: scale(1.1);
-}
-
-/* Estilos generales para las secciones con parallax */
-.parallax {
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh; /* Ajusta la altura según tus necesidades */
-}
-
-#hero{
-    display: flex;
-    align-items: center;
-    justify-content:baseline;
-    text-align:center;
-    flex-direction: column;
-    height: 800px;
-    color: rgb(0, 0, 0);
-    background-image: url('../../static/img/images/ilustración-edif.1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#hero h1{
-    color: #000000;
-    padding: 250px 12px;
-}
-
-#somosbalen{
-    display: flex;
-    padding: 20px 20px;
-}
-
-#somosbalen .textnosotros {
-    flex: 1; /* Las columnas ocupan un espacio igual */
-    padding: 10px; /* Espacio de relleno para separar las columnas */
-}
-
-#somosbalen p{
-    font-size: 25px;
-    text-align: justify;
-}
-
-#somosbalen .imgnosotros {
-    flex: 1; /* Las columnas ocupan un espacio igual */
-    padding: 10px; /* Espacio de relleno para separar las columnas */
-    border: 3px solid #ccc;
-}
-
-.imgnosotros img{
-    text-align: right;
-    width: 900px;
-    height: 680px;
-}
-
-#nuestroserv{
-    background-color: #2d69ad;
-    color: #000000;
-}
-
-#nuestroserv h2{
-    text-align: left;
-    padding: 20px 20px;
-    color: white;
-}
-
-
-#nuestroserv .container{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 100px 50px;
-    padding: 50px 50px;
-}
-
-
-.container .carta{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: flex-start;
-    width: 350px;
-    height: 300px;
-    background: ghostwhite;
-    border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
-    transition: 0.5s;
-}
-
-
-.container .carta:hover
-{
-    height: 400px;
-}
-
-
-.container .carta .imagen{
-    position: absolute;
-    top: 20px;
-    width: 300px;
-    height: 220px;
-    background: #333;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-
-.container .carta:hover .imagen{ 
-    top: -100px;
-    scale: 0.75;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
-}
-
-.container .carta .imagen img{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.container .carta .texto{
-   position: absolute;
-   top: 252px;
-   width: 100%;
-   padding: 0 30px;
-   height: 35px;
-   overflow: hidden;
-   text-align: center;
-   transition: 0.5s;
-}
-
-.container .carta:hover .texto{
-    top: 130px;
-    height: 250px;
-}
-
-.container .carta .texto h5{
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #000000;
-}
-
-
-.container .carta .texto p{
-    color: #000000;
-    text-align: center;
-}
-
-@media(min-width: 720px){
-    header .container{
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    header nav{
-        flex-direction: row;
-        padding-bottom: 0%;
-        padding-right: 20px;
-    }
-}
-
-/*CONTACTO*/
-#contact{
-    padding: 20px 20px;
-}
-
-/* Aplicar un fondo y márgenes al formulario */
-form {
-    background-color: #2d69ad;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    font-family: 'Glacial Indifference', sans-serif;
-    font-size: 20px;
-    color: white;
-    border-radius: 12px;
-}
-
-/* Cambiar el color del botón de envío */
-form button[type="submit"] {
-    background-color: #004473;
-    color: #fff;
-    padding: 5px 10px;
-    border:2px solid #000000;
-    cursor: pointer;
-}
-
-/* Estilo de las etiquetas */
-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-/* Estilo de los campos de entrada */
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Cambiar el color del borde cuando se enfoca en un campo */
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="tel"]:focus,
-form textarea:focus {
-    border-color: #0084ff;
-}
-/* Estilo de los mensajes de error */
-form .error-message {
-    color: #ff0000;
-    font-size: 14px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-
-footer .container{
-    max-width: 1200px;
-    margin: 0% auto;
-}
-
-footer{
-    background-color:#2d69ad;
-    padding: 50px 0px;
-}
-
-.footer-row{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer-links{
-    width: 25%;
-    padding: 0 15px;
-}
-
-.footer-links h6{
-    font-size: 20px;
-    color: white;
-    margin-bottom: 25px;
-    font-weight: 500;
-    border-bottom: 2px solid #00c3ff;
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-.footer-links ul li a{
-    font-size: 18px;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 15px;
-    color: #ffffff;
-    transition: all .1s ease;
-}
-
-.footer-links ul li a:hover{
-    color: #ffffff;
-    transform: scale(1.1) ;
-}
-
-
-.social-link a{
-    display: inline-block;
-    min-height: 40px;
-    width: 40px;
-    background-color: gray;
-    margin: 0 10px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    color: #ffffff;
-    transition: all .1s ease;
-}
-
-.social-link a:hover{
-    background-color: #00c3ff;
-    transform: scale(1.1);
-}
-
-@media(max-width:991px){
-    .footer-row{
-        text-align: center;
-    }
-
-    .footer-links{
-        width: 100%;
-        margin-bottom: 30px;
-    }
-}
-
-.footer-copy p{
-    position: relative;
-    text-align: right;
-    justify-content: right;
-    font-size: 90%;
-    font-family: 'Glacial Indifference', sans-serif;
-    color: #ffffff;
-
-}
-
+        @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+
+
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Glacial Indifference', sans-serif;
+            margin: 0%;
+            overflow-x: hidden !important;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 55px;
+        }
+
+        h2 {
+            font-size: 35px;
+        }
+
+        h3 {
+            font-size: 15px;
+        }
+
+        h4 {
+            font-size: 35px;
+        }
+
+        p {
+            font-size: 13px
+        }
+
+
+
+        button {
+            font-family: 'Glacial Indifference', sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            /* padding: 10px 10px;*/
+            border-radius: 10px;
+            border-color: #000000;
+            color: #fff;
+            background-color: #004473;
+        }
+
+        button:hover {
+            background-color: #2d69ad;
+        }
+
+        header {
+            background-color: #ffffff;
+        }
+
+        header img {
+            max-height: 100px;
+            display: block;
+        }
+
+        /* Estilos para el logo */
+        .logo {
+            display: inline-block;
+            transition: all .1s ease;
+        }
+
+        .logo img {
+            max-height: 100px;
+            display: block;
+        }
+
+        /* Estilos de hover para el logo */
+        .logo:hover {
+            transform: scale(1.1);
+            /* Aumenta el tamaño del logo al pasar el mouse sobre él */
+        }
+
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 0px;
+        }
+
+        header nav {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 0px 100px;
+        }
+
+        header a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #000000;
+            transition: all .1s ease;
+        }
+
+        header a:hover {
+            color: #2d69ad;
+            transform: scale(1.1);
+        }
+
+        /* Estilos generales para las secciones con parallax */
+        .parallax {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            /* Ajusta la altura según tus necesidades */
+        }
+
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: baseline;
+            text-align: center;
+            flex-direction: column;
+            height: 800px;
+            color: rgb(0, 0, 0);
+            background-image: url('../../static/img/images/ilustración-edif.1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        #hero h1 {
+            color: #000000;
+            padding: 250px 12px;
+        }
+
+        #somosbalen {
+            display: flex;
+            padding: 20px 20px;
+        }
+
+        #somosbalen .textnosotros {
+            flex: 1;
+            /* Las columnas ocupan un espacio igual */
+            padding: 10px;
+            /* Espacio de relleno para separar las columnas */
+        }
+
+        #somosbalen p {
+            font-size: 25px;
+            text-align: justify;
+        }
+
+        #somosbalen .imgnosotros {
+            flex: 1;
+            /* Las columnas ocupan un espacio igual */
+            padding: 10px;
+            /* Espacio de relleno para separar las columnas */
+            border: 3px solid #ccc;
+        }
+
+        .imgnosotros img {
+            text-align: right;
+            width: 900px;
+            height: 680px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #somosbalen {
+                flex-direction: column !important;
+            }
+
+            .imgnosotros img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        #nuestroserv {
+            background-color: #2d69ad;
+            color: #000000;
+        }
+
+        #nuestroserv h2 {
+            text-align: left;
+            padding: 20px 20px;
+            color: white;
+        }
+
+
+        #nuestroserv .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 100px 50px;
+            padding: 50px 50px;
+        }
+
+
+        .container .carta {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: flex-start;
+            width: 350px;
+            height: 300px;
+            background: ghostwhite;
+            border-radius: 20px;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+            transition: 0.5s;
+        }
+
+
+        .container .carta:hover {
+            height: 400px;
+        }
+
+
+        .container .carta .imagen {
+            position: absolute;
+            top: 20px;
+            width: 300px;
+            height: 220px;
+            background: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+
+        .container .carta:hover .imagen {
+            top: -100px;
+            scale: 0.75;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .container .carta .imagen img {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container .carta .texto {
+            position: absolute;
+            top: 252px;
+            width: 100%;
+            padding: 0 30px;
+            height: 35px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .container .carta:hover .texto {
+            top: 130px;
+            height: 250px;
+        }
+
+        .container .carta .texto h5 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #000000;
+        }
+
+
+        .container .carta .texto p {
+            color: #000000;
+            text-align: center;
+        }
+
+        @media(min-width: 720px) {
+            header .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            header nav {
+                flex-direction: row;
+                padding-bottom: 0%;
+                padding-right: 20px;
+            }
+        }
+
+        /*CONTACTO*/
+        #contact {
+            padding: 20px 20px;
+        }
+
+        /* Aplicar un fondo y márgenes al formulario */
+        form {
+            background-color: #2d69ad;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            font-family: 'Glacial Indifference', sans-serif;
+            font-size: 20px;
+            color: white;
+            border-radius: 12px;
+        }
+
+        /* Cambiar el color del botón de envío */
+        form button[type="submit"] {
+            background-color: #004473;
+            color: #fff;
+            padding: 5px 10px;
+            border: 2px solid #000000;
+            cursor: pointer;
+        }
+
+        /* Estilo de las etiquetas */
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Estilo de los campos de entrada */
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="tel"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Cambiar el color del borde cuando se enfoca en un campo */
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="tel"]:focus,
+        form textarea:focus {
+            border-color: #0084ff;
+        }
+
+        /* Estilo de los mensajes de error */
+        form .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0% auto;
+        }
+
+        footer {
+            background-color: #2d69ad;
+            padding: 50px 0px;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-links h6 {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: 500;
+            border-bottom: 2px solid #00c3ff;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .footer-links ul li a {
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            color: #ffffff;
+            transition: all .1s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+
+        .social-link a {
+            display: inline-block;
+            min-height: 40px;
+            width: 40px;
+            background-color: gray;
+            margin: 0 10px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all .1s ease;
+        }
+
+        .social-link a:hover {
+            background-color: #00c3ff;
+            transform: scale(1.1);
+        }
+
+        @media(max-width:991px) {
+            .footer-row {
+                text-align: center;
+            }
+
+            .footer-links {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        .footer-copy p {
+            position: relative;
+            text-align: right;
+            justify-content: right;
+            font-size: 90%;
+            font-family: 'Glacial Indifference', sans-serif;
+            color: #ffffff;
+
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
             <a class="logo" href="{% url 'home' %}">
-                <img src="{% static 'img/images/adminbalen.png' %}"  alt="Logo de Mi Página Web">
+                <img src="{% static 'img/images/adminbalen.png' %}" alt="Logo de Mi Página Web">
             </a>
             <nav data-aos="fade-left">
                 <a href="#somosbalen">QUIÉNES SOMOS</a>
@@ -446,78 +484,94 @@ footer{
                 <a href="#contact">CONTACTO</a>
                 <button onclick="window.location.href='../login'">INICIA SESIÓN</button>
             </nav>
-        </div>    
+        </div>
     </header>
-    
+
     <section id="hero" class="parallax">
         <div class="parallax-content">
             <h1 class="animate__animated animate__backInDown">BIENVENIDO A TU ADMINISTRADOR DE CONFIANZA</h1>
         </div>
     </section>
-    
+
     <section id="somosbalen">
         <div class="textnosotros" data-aos="fade-right" data-aos-duration="800">
             <h2>NOSOTROS</h2>
-            <p>En <strong>ADMINISTRACIONES BALENCIAGA</strong> estamos comprometidos a servir y satisfacer sus necesidades de manera óptima</p>
-            <p><strong>Nuestra misión</strong> es brindar claridad, transparencia y ofrecer a los administradores un manejo práctico, dinámico e intutitivo de la información, respaldado por la mejor tecnología disponible. Los administradores podrán acceder al sistema en línea, lo que les permite gestionar el consorcio y realizar consultas de manera eficiente. Desde la elaboración de planillas de expensas, pagos, registro de novedades, carga de facturas, estados de cuenta hasta la revisión de balances y mucho más. Nuestro sistemas está diseñado para ahorrar tiempo y minimizar la necesidad de llamadas y consultas administrativas rutinarias.</p>
-            <p>En <strong>ADMINISTRACIONES BALENCIAGA</strong> nos enorgullece ser su aliado en la gestión de consorcios, brindándole soluciones tecnológicas de vanguardia y un servicio excepcional para optimizar su experiencia como administrador.</p>
+            <p>En <strong>ADMINISTRACIONES BALENCIAGA</strong> estamos comprometidos a servir y satisfacer sus
+                necesidades de manera óptima</p>
+            <p><strong>Nuestra misión</strong> es brindar claridad, transparencia y ofrecer a los administradores un
+                manejo práctico, dinámico e intutitivo de la información, respaldado por la mejor tecnología disponible.
+                Los administradores podrán acceder al sistema en línea, lo que les permite gestionar el consorcio y
+                realizar consultas de manera eficiente. Desde la elaboración de planillas de expensas, pagos, registro
+                de novedades, carga de facturas, estados de cuenta hasta la revisión de balances y mucho más. Nuestro
+                sistemas está diseñado para ahorrar tiempo y minimizar la necesidad de llamadas y consultas
+                administrativas rutinarias.</p>
+            <p>En <strong>ADMINISTRACIONES BALENCIAGA</strong> nos enorgullece ser su aliado en la gestión de
+                consorcios, brindándole soluciones tecnológicas de vanguardia y un servicio excepcional para optimizar
+                su experiencia como administrador.</p>
         </div>
         <div class="imgnosotros" data-aos="fade-up" data-aos-duration="800">
             <img src="{% static 'img/images/nosotros_somos.jpg' %}" alt="Edificio Nosotros">
         </div>
     </section>
 
-    <section id="nuestroserv" >
-            <h2>NUESTRO SERVICIO</h2>
-            <div class="container">
-                <div class="carta" data-aos="fade-left" data-aos-duration="800">
-                    <div class="imagen">
-                        <img src="{% static 'img/images/reporte-gastos.png' %}" alt="Imagen frontal">
-                    </div>
-                    <div class="texto">
-                        <h5>Reportes Financieros</h5>
-                        <p>Una herramienta esencial para mantener un control sólido y transparente de las finanzas de tu consorcio.<br>
-                        Con acceso a una variedad de informes detallados, como estados de cuenta, resúmenes de gastos, balances y más, te ofrecemos una visión precisa y actualizada de la salud financiera de tu consorcio.</p>
-                    </div>
+    <section id="nuestroserv">
+        <h2>NUESTRO SERVICIO</h2>
+        <div class="container">
+            <div class="carta" data-aos="fade-left" data-aos-duration="800">
+                <div class="imagen">
+                    <img src="{% static 'img/images/reporte-gastos.png' %}" alt="Imagen frontal">
                 </div>
-                <div class="carta" data-aos="fade-left" data-aos-duration="800">
-                    <div class="imagen">
-                        <img src="{% static 'img/images/Metod-pago.png' %}" alt="Imagen frontal">
-                    </div>
-                    <div class="texto">
-                        <h5>Medios de Pago</h5>
-                        <p>Nuestra plataforma simplifica y agiliza la gestión de las transacciones financieras. Con una variedad de opciones de pago seguras y convenientes, te ofrecemos la flexibilidad necesaria para cumplir con tus obligaciones financieras de manera eficiente.</p>
-                    </div>
+                <div class="texto">
+                    <h5>Reportes Financieros</h5>
+                    <p>Una herramienta esencial para mantener un control sólido y transparente de las finanzas de tu
+                        consorcio.<br>
+                        Con acceso a una variedad de informes detallados, como estados de cuenta, resúmenes de gastos,
+                        balances y más, te ofrecemos una visión precisa y actualizada de la salud financiera de tu
+                        consorcio.</p>
                 </div>
-                <div class="carta" data-aos="fade-left" data-aos-duration="800">
-                    <div class="imagen">
-                        <img src="{% static 'img/images/Sistema-Comu.png' %}" alt="Imagen frontal">
-                    </div>
-                    <div class="texto">
-                        <h5>Sistema de Comunicación</h5>
-                        <p>Con nuestro sistema, vas a poder enviar y recibir mensajes de forma rápida y segura, ya sea para compartir anuncios, programar reuniones, o coordinar tareas. Te ofrecemos la posibilidad de almacenar y acceder a documentos relevantes en un espacio centralizado.</p>
-                    </div>
+            </div>
+            <div class="carta" data-aos="fade-left" data-aos-duration="800">
+                <div class="imagen">
+                    <img src="{% static 'img/images/Metod-pago.png' %}" alt="Imagen frontal">
+                </div>
+                <div class="texto">
+                    <h5>Medios de Pago</h5>
+                    <p>Nuestra plataforma simplifica y agiliza la gestión de las transacciones financieras. Con una
+                        variedad de opciones de pago seguras y convenientes, te ofrecemos la flexibilidad necesaria para
+                        cumplir con tus obligaciones financieras de manera eficiente.</p>
+                </div>
+            </div>
+            <div class="carta" data-aos="fade-left" data-aos-duration="800">
+                <div class="imagen">
+                    <img src="{% static 'img/images/Sistema-Comu.png' %}" alt="Imagen frontal">
+                </div>
+                <div class="texto">
+                    <h5>Sistema de Comunicación</h5>
+                    <p>Con nuestro sistema, vas a poder enviar y recibir mensajes de forma rápida y segura, ya sea para
+                        compartir anuncios, programar reuniones, o coordinar tareas. Te ofrecemos la posibilidad de
+                        almacenar y acceder a documentos relevantes en un espacio centralizado.</p>
+                </div>
             </div>
     </section>
 
     <section id="contact">
-            <h4>CONTÁCTANOS</h4>
-            <form action="procesar_formulario.php" method="POST">
-                <label for="nombre-completo">Nombre completo:</label>
-                <input type="text" id="nombre-completo" name="nombre-completo" required>
-        
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
-        
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono">
-        
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        
-                <button type="submit">Enviar</button>
-            </form>
-        </div>      
+        <h4>CONTÁCTANOS</h4>
+        <form action="procesar_formulario.php" method="POST">
+            <label for="nombre-completo">Nombre completo:</label>
+            <input type="text" id="nombre-completo" name="nombre-completo" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        </div>
     </section>
 
     <footer>
@@ -552,11 +606,11 @@ footer{
                 </div>
             </div>
             <div class="footer-copy">
-            <p>&copy; AdministracionesBalenciaga2023 | Todos los derechos reservados | Desarrollado por <span style
-                ="color:#00c3ff;"> BI-Clouds</span></p>
-            </div>    
+                <p>&copy; AdministracionesBalenciaga2023 | Todos los derechos reservados | Desarrollado por <span
+                        style="color:#00c3ff;"> BI-Clouds</span></p>
+            </div>
         </div>
-        
+
     </footer>
 
     <!--DATA-AOS(Link de JS cuando se hace scroll y aparecen las imagenes)-->
